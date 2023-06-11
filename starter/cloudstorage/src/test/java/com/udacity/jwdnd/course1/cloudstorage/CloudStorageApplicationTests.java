@@ -87,6 +87,9 @@ class CloudStorageApplicationTests {
 		// success message below depening on the rest of your code.
 		*/
 		Assertions.assertTrue(driver.findElement(By.id("success-msg")).getText().contains("You successfully signed up!"));
+
+		//wait for redirect to login page
+		webDriverWait.until(ExpectedConditions.titleContains("Login"));
 	}
 
 	
@@ -131,7 +134,7 @@ class CloudStorageApplicationTests {
 	 * https://review.udacity.com/#!/rubrics/2724/view 
 	 */
 	@Test
-	public void testRedirection() {
+	public void testRedirection() throws InterruptedException {
 		// Create a test account
 		doMockSignUp("Redirection","Test","RT","123");
 		

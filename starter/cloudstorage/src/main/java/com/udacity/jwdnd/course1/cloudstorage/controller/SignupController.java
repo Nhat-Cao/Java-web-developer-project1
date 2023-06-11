@@ -24,7 +24,7 @@ public class SignupController {
     }
 
     @PostMapping()
-    public String signupUser(@ModelAttribute User user, Model model) {
+    public String signupUser(@ModelAttribute User user, Model model) throws InterruptedException {
         String signupError = null;
 
         if (!userService.isUsernameAvailable(user.getUsername())) {
@@ -46,4 +46,5 @@ public class SignupController {
 
         return "signup";
     }
+
 }
